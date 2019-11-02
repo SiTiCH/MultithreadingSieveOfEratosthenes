@@ -31,7 +31,7 @@ public class Main {
     }
 
     private static void filling(Vector<Integer> vector, int length) {
-        for(int i = 1; i < length + 1; ++i) {
+        for(int i = 2; i < length+2; ++i) {
             vector.add(i);
         }
     }
