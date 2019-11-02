@@ -9,8 +9,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int vectorLength = input.nextInt();
         filling(vector, vectorLength);
-        int sqrtLength = (int)Math.sqrt((double)vectorLength);
-        System.out.println(sqrtLength);
+        int sqrtLength;
         sqrtLength = sieveOfEratosthenes(vector);
         byte quantityOfThread;
         System.out.println("Введите количество потоков: ");
@@ -20,13 +19,17 @@ public class Main {
         for(byte i =0;i<quantityOfThread;i++){
             task[i]=new Task(vector,sqrtLength,sectorSize,i);
         }
+        long  dt1 = System.currentTimeMillis();
         for(Task t : task){
             t.run();
         }
+        long dt2 = System.currentTimeMillis();
+        long dt = dt2-dt1;
         for(Integer a : vector){
             System.out.println(a);
         }
-        System.out.print(vector.size());
+        System.out.println(vector.size());
+        System.out.print(dt+" мс");
 
     }
 
